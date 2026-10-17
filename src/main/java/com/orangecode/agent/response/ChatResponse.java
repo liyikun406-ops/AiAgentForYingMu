@@ -1,4 +1,4 @@
-package com.orangecode.agent.model.vo;
+package com.orangecode.agent.response;
 
 import lombok.Getter;
 import lombok.Setter;

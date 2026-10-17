@@ -10,9 +10,9 @@ import lombok.Setter;
 public class ChatRequest {
     @JsonProperty(value = "id")
     @JsonAlias({"id", "ID"})
-    public String id;
+    private String id;
 
     @JsonProperty(value = "Question")
     @JsonAlias({"question", "QUESTION"})
-    public String Question;
+    private String Question;
 }

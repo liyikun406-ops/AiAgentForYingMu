@@ -6,6 +6,11 @@ server:
       enabled: true
       force: true
 
+file:
+  upload:
+    path: ./uploads
+    allowed-extensions: txt,md
+
 milvus:
   enable: true
   host: localhost

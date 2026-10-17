@@ -13,12 +13,12 @@ import java.util.concurrent.locks.ReentrantLock;
 @Getter
 @Setter
 public class SessionInfo {
-    public final int MAX_WINDOW_SIZE;
-    public final String sessionId;
-    public final List<Map<String, String>> messageHistory;
-    public final Long createTime;
-    public final ReentrantLock lock;
-    public final ChatService chatService;
+    private final int MAX_WINDOW_SIZE;
+    private final String sessionId;
+    private final List<Map<String, String>> messageHistory;
+    private final Long createTime;
+    private final ReentrantLock lock;
+    private final ChatService chatService;
 
     public SessionInfo(String sessionId, ChatService chatService){
         this.sessionId = sessionId;
@@ -60,6 +60,15 @@ public class SessionInfo {
         lock.lock();
         try {
             return messageHistory.size() / 2;
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public void clearHistory(){
+        lock.lock();
+        try {
+            messageHistory.clear();
         } finally {
             lock.unlock();
         }

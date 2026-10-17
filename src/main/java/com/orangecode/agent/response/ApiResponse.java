@@ -1,4 +1,4 @@
-package com.orangecode.agent.model.vo;
+package com.orangecode.agent.response;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,13 +6,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ApiResponse<T> {
-    public int coe;
-    public String message;
-    public T data;
+    private int code;
+    private String message;
+    private T data;
 
     public static <T> ApiResponse<T> success(T data){
         ApiResponse response = new ApiResponse();
-        response.setCoe(200);
+        response.setCode(200);
         response.setData(data);
         response.setMessage("success");
         return response;
@@ -20,7 +20,7 @@ public class ApiResponse<T> {
 
     public static <T> ApiResponse<T> error(String message){
         ApiResponse response = new ApiResponse();
-        response.setCoe(500);
+        response.setCode(500);
         response.setMessage(message);
         return response;
     }
